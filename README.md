@@ -1,2 +1,2 @@
-# omdbfetch
-OMDB image fetcher.
+# OMDbFetch
+www.omdbapi.com image fetcher.
