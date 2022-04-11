@@ -1,2 +1,2 @@
 # OMDbFetch
-www.omdbapi.com image fetcher.
+[www.omdbapi.com](https://www.omdbapi.com) image fetcher.
