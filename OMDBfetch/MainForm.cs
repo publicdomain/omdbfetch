@@ -298,7 +298,7 @@ namespace OMDBfetch
             // Empty api key
             if (this.settingsData.ApiKey.Length == 0)
             {
-                MessageBox.Show($"Please set API key.{Environment.NewLine}(Tools/Settings/API key)", "Set imdb-api.com key", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Please set API key.{Environment.NewLine}(Tools/Settings/API key)", "Set www.omdbapi.com key", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return;
             }
@@ -377,7 +377,6 @@ namespace OMDBfetch
             // Enable
             this.searchTextBox.Enabled = true;
             this.fetchButton.Enabled = true;
-
         }
 
         /// <summary>
@@ -423,8 +422,8 @@ namespace OMDBfetch
                 // Update status
                 this.resultToolStripStatusLabel.Text = $"Downloading info for: \"{title.Substring(0, Math.Min(title.Length, 25))}\"...";
 
-                // Set item by id
-                Item item = await omdb.GetItemByIdAsync(id);
+                // Set item by id, with full plot
+                Item item = await omdb.GetItemByIdAsync(id, true);
 
                 // TODO Check for error [Legacy. Check if needed]
                 if (item.Title.Length == 0)
