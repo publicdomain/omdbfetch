@@ -159,7 +159,7 @@ namespace OMDBfetch
             this.fetchButton.Name = "fetchButton";
             this.fetchButton.Size = new System.Drawing.Size(370, 44);
             this.fetchButton.TabIndex = 5;
-            this.fetchButton.Text = "&FETCH INFO";
+            this.fetchButton.Text = "&FETCH ITEMS";
             this.fetchButton.UseVisualStyleBackColor = true;
             this.fetchButton.Click += new System.EventHandler(this.OnFetchButtonClick);
             // 

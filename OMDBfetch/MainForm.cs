@@ -334,7 +334,6 @@ namespace OMDBfetch
             {
                 SearchList searchList = await omdb.GetSearchListAsync(this.searchTextBox.Text);
 
-
                 // Clear data table
                 this.dataTable.Rows.Clear();
 
@@ -407,7 +406,6 @@ namespace OMDBfetch
             this.logTabControl.SelectedTab = this.infoTabPage;
 
             try
-
             {
                 // Get ID and title dictionary
                 var selectedItemIdAndTitle = GetSelectedItemIdAndTitle();
@@ -445,8 +443,36 @@ namespace OMDBfetch
 
                         if (propValue.ToString().Length > 0)
                         {
-                            infoStringBuilder.AppendLine($"{prop.Name}: {propValue}");
-                            infoStringBuilder.AppendLine();
+                            // Populate info string builder
+                            switch (prop.Name)
+                            {
+                                // Skips
+                                case "Response":
+                                    break;
+
+                                // Ratings
+                                case "Ratings":
+
+                                    infoStringBuilder.AppendLine($"{prop.Name}");
+
+                                    foreach (var rating in item.Ratings)
+                                    {
+                                        infoStringBuilder.AppendLine($"{rating.Source}: {rating.Value}");
+                                    }
+
+                                    infoStringBuilder.AppendLine();
+
+                                    break;
+
+                                // Everything else
+                                default:
+
+                                    infoStringBuilder.AppendLine($"{prop.Name}: {propValue}");
+                                    infoStringBuilder.AppendLine();
+                                    break;
+                            }
+
+
                         }
                     }
                     catch (Exception ex)
