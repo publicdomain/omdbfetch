@@ -803,7 +803,7 @@ namespace OMDBfetch
             var aboutForm = new AboutForm(
                 $"About {programTitle}",
                 $"{programTitle} {version.Major}.{version.Minor}.{version.Build}",
-                $"Made for: Mouser{Environment.NewLine}DonationCoder.com{Environment.NewLine}Day #224, Week #32 @ August 12, 2022",
+                $"Made for: Mouser{Environment.NewLine}DonationCoder.com{Environment.NewLine}Day #228, Week #33 @ August 16, 2022",
                 licenseText,
                 this.Icon.ToBitmap())
             {
