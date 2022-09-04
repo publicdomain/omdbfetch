@@ -321,14 +321,10 @@ namespace OMDBfetch
             this.infoRichTextBox.Clear();
             this.imagePictureBox.Image = null;
             this.searchListBox.Items.Clear();
-            this.searchLogTextBox.Clear();
             this.linksRichTextBox.Clear();
 
             // Advise user
             this.resultToolStripStatusLabel.Text = $"Searching for: \"{this.searchTextBox.Text}\"...";
-
-            // Focus search tab page
-            this.logTabControl.SelectedTab = this.searchTabPage;
 
             try
             {
@@ -398,12 +394,8 @@ namespace OMDBfetch
 
             // Resets
             this.imagePictureBox.Image = null;
-            this.infoLogTextBox.Clear();
             this.infoRichTextBox.Clear();
             this.linksRichTextBox.Clear();
-
-            // Focus info tab page
-            this.logTabControl.SelectedTab = this.infoTabPage;
 
             try
             {
@@ -661,6 +653,16 @@ namespace OMDBfetch
         }
 
         /// <summary>
+        /// Handles the search results tool strip menu item click.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnSearchResultsToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
         /// Handles the options tool strip menu item drop down item clicked.
         /// </summary>
         /// <param name="sender">Sender object.</param>
@@ -895,12 +897,6 @@ namespace OMDBfetch
 
             // Focus search text box
             this.searchTextBox.Focus();
-
-            // Get API calls
-            if (this.settingsData.ApiCallsOnStart)
-            {
-                this.getAPICallsToolStripMenuItem.PerformClick();
-            }
 
             // GUI
             this.alwaysOnTopToolStripMenuItem.Checked = this.settingsData.AlwaysOnTop;

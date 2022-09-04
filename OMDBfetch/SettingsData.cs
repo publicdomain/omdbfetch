@@ -66,10 +66,10 @@ namespace PublicDomain
         public string ApiKey { get; set; } = string.Empty;
 
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="T:PublicDomain.SettingsData"/> API calls on start.
+        /// Gets or sets the search results.
         /// </summary>
-        /// <value><c>true</c> if API calls on start; otherwise, <c>false</c>.</value>
-        public bool ApiCallsOnStart { get; set; } = false;
+        /// <value>The search results.</value>
+        public int SearchResults { get; set; } = 10;
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:PublicDomain.SettingsData"/> hide identifiers in list.

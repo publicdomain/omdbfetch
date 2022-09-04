@@ -43,12 +43,6 @@ namespace OMDBfetch
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchListBox = new System.Windows.Forms.ListBox();
             this.logTabControl = new System.Windows.Forms.TabControl();
-            this.searchTabPage = new System.Windows.Forms.TabPage();
-            this.searchLogTextBox = new System.Windows.Forms.TextBox();
-            this.infoTabPage = new System.Windows.Forms.TabPage();
-            this.infoLogTextBox = new System.Windows.Forms.TextBox();
-            this.callsTabPage = new System.Windows.Forms.TabPage();
-            this.apiCallsLogTextBox = new System.Windows.Forms.TextBox();
             this.errorlogTabPage = new System.Windows.Forms.TabPage();
             this.errorLogTextBox = new System.Windows.Forms.TextBox();
             this.linksTabPage = new System.Windows.Forms.TabPage();
@@ -77,9 +71,9 @@ namespace OMDBfetch
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.getAPICallsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aPIKeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchResultsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideIDsInListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,11 +94,9 @@ namespace OMDBfetch
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.resultToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.fullPlotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTableLayoutPanel.SuspendLayout();
             this.logTabControl.SuspendLayout();
-            this.searchTabPage.SuspendLayout();
-            this.infoTabPage.SuspendLayout();
-            this.callsTabPage.SuspendLayout();
             this.errorlogTabPage.SuspendLayout();
             this.linksTabPage.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -246,9 +238,6 @@ namespace OMDBfetch
             // logTabControl
             // 
             this.mainTableLayoutPanel.SetColumnSpan(this.logTabControl, 2);
-            //#        	this.logTabControl.Controls.Add(this.searchTabPage);
-            //#        	this.logTabControl.Controls.Add(this.infoTabPage);
-            //#        	this.logTabControl.Controls.Add(this.callsTabPage);
             this.logTabControl.Controls.Add(this.errorlogTabPage);
             this.logTabControl.Controls.Add(this.linksTabPage);
             this.logTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -257,66 +246,6 @@ namespace OMDBfetch
             this.logTabControl.SelectedIndex = 0;
             this.logTabControl.Size = new System.Drawing.Size(370, 102);
             this.logTabControl.TabIndex = 8;
-            // 
-            // searchTabPage
-            // 
-            this.searchTabPage.Controls.Add(this.searchLogTextBox);
-            this.searchTabPage.Location = new System.Drawing.Point(4, 22);
-            this.searchTabPage.Name = "searchTabPage";
-            this.searchTabPage.Size = new System.Drawing.Size(362, 76);
-            this.searchTabPage.TabIndex = 2;
-            this.searchTabPage.Text = "Search";
-            this.searchTabPage.UseVisualStyleBackColor = true;
-            // 
-            // searchLogTextBox
-            // 
-            this.searchLogTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchLogTextBox.Location = new System.Drawing.Point(0, 0);
-            this.searchLogTextBox.Multiline = true;
-            this.searchLogTextBox.Name = "searchLogTextBox";
-            this.searchLogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.searchLogTextBox.Size = new System.Drawing.Size(362, 76);
-            this.searchLogTextBox.TabIndex = 4;
-            // 
-            // infoTabPage
-            // 
-            this.infoTabPage.Controls.Add(this.infoLogTextBox);
-            this.infoTabPage.Location = new System.Drawing.Point(4, 22);
-            this.infoTabPage.Name = "infoTabPage";
-            this.infoTabPage.Size = new System.Drawing.Size(362, 76);
-            this.infoTabPage.TabIndex = 3;
-            this.infoTabPage.Text = "Info";
-            this.infoTabPage.UseVisualStyleBackColor = true;
-            // 
-            // infoLogTextBox
-            // 
-            this.infoLogTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.infoLogTextBox.Location = new System.Drawing.Point(0, 0);
-            this.infoLogTextBox.Multiline = true;
-            this.infoLogTextBox.Name = "infoLogTextBox";
-            this.infoLogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.infoLogTextBox.Size = new System.Drawing.Size(362, 76);
-            this.infoLogTextBox.TabIndex = 4;
-            // 
-            // callsTabPage
-            // 
-            this.callsTabPage.Controls.Add(this.apiCallsLogTextBox);
-            this.callsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.callsTabPage.Name = "callsTabPage";
-            this.callsTabPage.Size = new System.Drawing.Size(362, 76);
-            this.callsTabPage.TabIndex = 4;
-            this.callsTabPage.Text = "Calls";
-            this.callsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // apiCallsLogTextBox
-            // 
-            this.apiCallsLogTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.apiCallsLogTextBox.Location = new System.Drawing.Point(0, 0);
-            this.apiCallsLogTextBox.Multiline = true;
-            this.apiCallsLogTextBox.Name = "apiCallsLogTextBox";
-            this.apiCallsLogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.apiCallsLogTextBox.Size = new System.Drawing.Size(362, 76);
-            this.apiCallsLogTextBox.TabIndex = 4;
             // 
             // errorlogTabPage
             // 
@@ -615,40 +544,41 @@ namespace OMDBfetch
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-//#        	        	        	this.getAPICallsToolStripMenuItem,
-        	        	        	this.settingsToolStripMenuItem,
+                                    this.settingsToolStripMenuItem,
                                     this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
-            // getAPICallsToolStripMenuItem
-            // 
-            this.getAPICallsToolStripMenuItem.Name = "getAPICallsToolStripMenuItem";
-            this.getAPICallsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.getAPICallsToolStripMenuItem.Text = "&Get API calls";
-            //#        	this.getAPICallsToolStripMenuItem.Click += new System.EventHandler(this.OnGetAPICallsToolStripMenuItemClick);
-            // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                                    this.aPIKeyToolStripMenuItem});
+                                    this.aPIKeyToolStripMenuItem,
+                                    this.searchResultsToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.settingsToolStripMenuItem.Text = "&Settings";
             // 
             // aPIKeyToolStripMenuItem
             // 
             this.aPIKeyToolStripMenuItem.Name = "aPIKeyToolStripMenuItem";
-            this.aPIKeyToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.aPIKeyToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.aPIKeyToolStripMenuItem.Text = "&API key";
             this.aPIKeyToolStripMenuItem.Click += new System.EventHandler(this.OnAPIKeyToolStripMenuItemClick);
+            // 
+            // searchResultsToolStripMenuItem
+            // 
+            this.searchResultsToolStripMenuItem.Name = "searchResultsToolStripMenuItem";
+            this.searchResultsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.searchResultsToolStripMenuItem.Text = "&Search results";
+            this.searchResultsToolStripMenuItem.Click += new System.EventHandler(this.OnSearchResultsToolStripMenuItemClick);
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
                                     this.alwaysOnTopToolStripMenuItem,
-                                    this.hideIDsInListToolStripMenuItem});
+                                    this.hideIDsInListToolStripMenuItem,
+                                    this.fullPlotToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
@@ -657,7 +587,7 @@ namespace OMDBfetch
             // alwaysOnTopToolStripMenuItem
             // 
             this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
-            this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.alwaysOnTopToolStripMenuItem.Text = "&Always on top";
             // 
             // hideIDsInListToolStripMenuItem
@@ -665,7 +595,7 @@ namespace OMDBfetch
             this.hideIDsInListToolStripMenuItem.Checked = true;
             this.hideIDsInListToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.hideIDsInListToolStripMenuItem.Name = "hideIDsInListToolStripMenuItem";
-            this.hideIDsInListToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.hideIDsInListToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.hideIDsInListToolStripMenuItem.Text = "&Hide IDs in list";
             // 
             // helpToolStripMenuItem
@@ -795,6 +725,14 @@ namespace OMDBfetch
             this.openFileDialog.Filter = "TXT files (*.txt)|*.txt|All files (*.*)|*.*";
             this.openFileDialog.Title = "Open games file";
             // 
+            // fullPlotToolStripMenuItem
+            // 
+            this.fullPlotToolStripMenuItem.Checked = true;
+            this.fullPlotToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.fullPlotToolStripMenuItem.Name = "fullPlotToolStripMenuItem";
+            this.fullPlotToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fullPlotToolStripMenuItem.Text = "&Full plot";
+            // 
             // MainForm
             // 
             this.AcceptButton = this.fetchButton;
@@ -813,12 +751,6 @@ namespace OMDBfetch
             this.mainTableLayoutPanel.ResumeLayout(false);
             this.mainTableLayoutPanel.PerformLayout();
             this.logTabControl.ResumeLayout(false);
-            this.searchTabPage.ResumeLayout(false);
-            this.searchTabPage.PerformLayout();
-            this.infoTabPage.ResumeLayout(false);
-            this.infoTabPage.PerformLayout();
-            this.callsTabPage.ResumeLayout(false);
-            this.callsTabPage.PerformLayout();
             this.errorlogTabPage.ResumeLayout(false);
             this.errorlogTabPage.PerformLayout();
             this.linksTabPage.ResumeLayout(false);
@@ -833,24 +765,19 @@ namespace OMDBfetch
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+        private System.Windows.Forms.ToolStripMenuItem fullPlotToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchResultsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem browseImageDirectoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hideIDsInListToolStripMenuItem;
         private System.Windows.Forms.RichTextBox linksRichTextBox;
         private System.Windows.Forms.TabPage linksTabPage;
         private System.Windows.Forms.TextBox errorLogTextBox;
         private System.Windows.Forms.TabPage errorlogTabPage;
-        private System.Windows.Forms.TextBox apiCallsLogTextBox;
-        private System.Windows.Forms.TextBox infoLogTextBox;
-        private System.Windows.Forms.TextBox searchLogTextBox;
-        private System.Windows.Forms.TabPage callsTabPage;
-        private System.Windows.Forms.TabPage infoTabPage;
-        private System.Windows.Forms.TabPage searchTabPage;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem getAPIKeyToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ToolStripStatusLabel apiCallsCountToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel apiCallsToolStripStatusLabel;
-        private System.Windows.Forms.ToolStripMenuItem getAPICallsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aPIKeyToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripStatusLabel resultToolStripStatusLabel;
