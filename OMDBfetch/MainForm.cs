@@ -328,30 +328,51 @@ namespace OMDBfetch
 
             try
             {
-                SearchList searchList = await omdb.GetSearchListAsync(this.searchTextBox.Text);
-
                 // Clear data table
                 this.dataTable.Rows.Clear();
 
-                /* Extract fields */
+                /* Search pages */
 
-                foreach (var result in searchList.SearchResults)
+                for (int i = 0; i < this.settingsData.SearchPages; i++)
                 {
-                    DataRow row = this.dataTable.NewRow();
+                    // Set page number
+                    int pageNumber = (i + 1);
 
-                    /* Set values */
+                    SearchList searchList = await omdb.GetSearchListAsync(this.searchTextBox.Text, pageNumber);
 
-                    row["ID"] = result.ImdbId;
-                    row["Title"] = result.Title;
-                    row["Description"] = $"{result.Year} ({result.Type})";
-                    row["Image"] = result.Poster;
+                    /* Extract fields */
 
-                    // Add to data table
-                    this.dataTable.Rows.Add(row);
+                    foreach (var result in searchList.SearchResults)
+                    {
+                        DataRow row = this.dataTable.NewRow();
+
+                        /* Set values */
+
+                        row["ID"] = result.ImdbId;
+                        row["Title"] = result.Title;
+                        row["Description"] = $"{result.Year} ({result.Type})";
+                        row["Image"] = result.Poster;
+
+                        // Add to data table
+                        this.dataTable.Rows.Add(row);
+                    }
+
+                    // Populate list box
+                    this.SortedDataTableToListBox();
+
+                    // Advise user
+                    this.resultToolStripStatusLabel.Text = $"Fetched search page #{pageNumber}...";
+
+                    // Check for pagination end
+                    if (searchList.SearchResults.Count() < 10)
+                    {
+                        // Exit loop
+                        break;
+                    }
+
+                    // Update api calls count
+                    this.UpdateApiCalls();
                 }
-
-                // Populate list box
-                this.SortedDataTableToListBox();
 
                 // Advise user
                 this.resultToolStripStatusLabel.Text = "Please click a result to process";
