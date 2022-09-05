@@ -313,6 +313,7 @@ namespace OMDBfetch
             // Disable
             this.searchTextBox.Enabled = false;
             this.fetchButton.Enabled = false;
+            this.searchListBox.Enabled = false;
 
             // Set variables
             this.directory = this.directoryTextBox.Text;
@@ -363,15 +364,15 @@ namespace OMDBfetch
                     // Advise user
                     this.resultToolStripStatusLabel.Text = $"Fetched search page #{pageNumber}...";
 
+                    // Update api calls count
+                    this.UpdateApiCalls();
+
                     // Check for pagination end
                     if (searchList.SearchResults.Count() < 10)
                     {
                         // Exit loop
                         break;
                     }
-
-                    // Update api calls count
-                    this.UpdateApiCalls();
                 }
 
                 // Advise user
@@ -387,12 +388,10 @@ namespace OMDBfetch
                 this.LogError($"Search exception message:{Environment.NewLine}{ex.Message}{Environment.NewLine}{ex.StackTrace}", "Exception while searching. Please retry.");
             }
 
-            // Update api calls count
-            this.UpdateApiCalls();
-
             // Enable
             this.searchTextBox.Enabled = true;
             this.fetchButton.Enabled = true;
+            this.searchListBox.Enabled = true;
         }
 
         /// <summary>
@@ -434,7 +433,7 @@ namespace OMDBfetch
                 this.resultToolStripStatusLabel.Text = $"Downloading info for: \"{title.Substring(0, Math.Min(title.Length, 25))}\"...";
 
                 // Set item by id, with full plot
-                Item item = await omdb.GetItemByIdAsync(id, true);
+                Item item = await omdb.GetItemByIdAsync(id, this.fullPlotToolStripMenuItem.Checked);
 
                 // TODO Check for error [Legacy. Check if needed]
                 if (item.Title.Length == 0)
