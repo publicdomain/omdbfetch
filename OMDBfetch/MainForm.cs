@@ -861,7 +861,7 @@ namespace OMDBfetch
             var aboutForm = new AboutForm(
                 $"About {programTitle}",
                 $"{programTitle} {version.Major}.{version.Minor}.{version.Build}",
-                $"Made for: Mouser{Environment.NewLine}DonationCoder.com{Environment.NewLine}Day #228, Week #33 @ August 16, 2022",
+                $"Made for: Mouser{Environment.NewLine}DonationCoder.com{Environment.NewLine}Day #248, Week #36 @ September 05, 2022",
                 licenseText,
                 this.Icon.ToBitmap())
             {
