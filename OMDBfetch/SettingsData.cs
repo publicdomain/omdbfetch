@@ -66,10 +66,16 @@ namespace PublicDomain
         public string ApiKey { get; set; } = string.Empty;
 
         /// <summary>
-        /// Gets or sets the search results.
+        /// Gets or sets the search pages.
         /// </summary>
-        /// <value>The search results.</value>
-        public int SearchResults { get; set; } = 10;
+        /// <value>The search pages.</value>
+        public int SearchPages { get; set; } = 1;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="T:PublicDomain.SettingsData"/> full plot.
+        /// </summary>
+        /// <value><c>true</c> if full plot; otherwise, <c>false</c>.</value>
+        public bool FullPlot { get; set; } = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:PublicDomain.SettingsData"/> hide identifiers in list.

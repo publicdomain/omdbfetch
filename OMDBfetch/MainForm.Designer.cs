@@ -73,7 +73,7 @@ namespace OMDBfetch
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aPIKeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchResultsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchPagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideIDsInListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -554,7 +554,7 @@ namespace OMDBfetch
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
                                     this.aPIKeyToolStripMenuItem,
-                                    this.searchResultsToolStripMenuItem});
+                                    this.searchPagesToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.settingsToolStripMenuItem.Text = "&Settings";
@@ -566,12 +566,12 @@ namespace OMDBfetch
             this.aPIKeyToolStripMenuItem.Text = "&API key";
             this.aPIKeyToolStripMenuItem.Click += new System.EventHandler(this.OnAPIKeyToolStripMenuItemClick);
             // 
-            // searchResultsToolStripMenuItem
+            // searchPagesToolStripMenuItem
             // 
-            this.searchResultsToolStripMenuItem.Name = "searchResultsToolStripMenuItem";
-            this.searchResultsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.searchResultsToolStripMenuItem.Text = "&Search results";
-            this.searchResultsToolStripMenuItem.Click += new System.EventHandler(this.OnSearchResultsToolStripMenuItemClick);
+            this.searchPagesToolStripMenuItem.Name = "searchPagesToolStripMenuItem";
+            this.searchPagesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.searchPagesToolStripMenuItem.Text = "&Search pages";
+            this.searchPagesToolStripMenuItem.Click += new System.EventHandler(this.OnSearchPagesToolStripMenuItemClick);
             // 
             // optionsToolStripMenuItem
             // 
@@ -766,7 +766,7 @@ namespace OMDBfetch
             this.PerformLayout();
         }
         private System.Windows.Forms.ToolStripMenuItem fullPlotToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchResultsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchPagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem browseImageDirectoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hideIDsInListToolStripMenuItem;
         private System.Windows.Forms.RichTextBox linksRichTextBox;

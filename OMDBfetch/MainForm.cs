@@ -629,7 +629,7 @@ namespace OMDBfetch
         private void OnAPIKeyToolStripMenuItemClick(object sender, EventArgs e)
         {
             // Get raw value
-            string userValue = Interaction.InputBox("API key from omdbapi.com)", "Edit key", this.settingsData.ApiKey);
+            string userValue = Interaction.InputBox("API key from omdbapi.com", "Edit key", this.settingsData.ApiKey);
 
             // Check length
             if (userValue.Length == 0)
@@ -653,13 +653,46 @@ namespace OMDBfetch
         }
 
         /// <summary>
-        /// Handles the search results tool strip menu item click.
+        /// Handles the search pages tool strip menu item click.
         /// </summary>
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
-        private void OnSearchResultsToolStripMenuItemClick(object sender, EventArgs e)
+        private void OnSearchPagesToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Get raw value
+            string userValue = Interaction.InputBox("Search results pages (10 items per page)", "Results pagination", this.settingsData.SearchPages.ToString());
+
+            // Check length
+            if (userValue.Length == 0)
+            {
+                // Halt flow
+                return;
+            }
+
+            try
+            {
+                // Parse
+                if (int.TryParse(userValue, out int pages))
+                {
+                    // Correct range
+                    if (pages == 0)
+                    {
+                        pages = 1;
+                    }
+                    else if (pages > 100)
+                    {
+                        pages = 100;
+                    }
+
+                    // Set API key
+                    this.settingsData.SearchPages = pages;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Advise user
+                MessageBox.Show($"Search pages edit error:{Environment.NewLine}{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -685,6 +718,9 @@ namespace OMDBfetch
 
             // Hide IDs in list
             this.settingsData.HideIdsInList = this.hideIDsInListToolStripMenuItem.Checked;
+
+            // Full plot
+            this.settingsData.FullPlot = this.fullPlotToolStripMenuItem.Checked;
 
             // Check if it's a Hide IDs toggle
             if (toolStripMenuItem.Name == this.hideIDsInListToolStripMenuItem.Name)
@@ -900,8 +936,8 @@ namespace OMDBfetch
 
             // GUI
             this.alwaysOnTopToolStripMenuItem.Checked = this.settingsData.AlwaysOnTop;
-            //this.setAPICalsOnStartToolStripMenuItem.Checked = this.settingsData.ApiCallsOnStart;
             this.hideIDsInListToolStripMenuItem.Checked = this.settingsData.HideIdsInList;
+            this.fullPlotToolStripMenuItem.Checked = this.settingsData.FullPlot;
         }
 
         /// <summary>
